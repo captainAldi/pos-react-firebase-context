@@ -29,11 +29,14 @@ function FirebaseProvider(props) {
 
   return (
     <FireBaseContext.Provider
-      value={
+      value={{
         auth,
         firestore,
-        storage
-      }
+        storage,
+        user,
+        loading,
+        error
+      }}
     >
       {props.children}
     </FireBaseContext.Provider>

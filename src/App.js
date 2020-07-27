@@ -18,26 +18,30 @@ import ThemeProvider from '@material-ui/styles/ThemeProvider'
 
 import theme from './config/Theme'
 
+import { SnackbarProvider } from 'notistack'
+
 function App() {
   return (
     <>
       <CssBaseline>
         <ThemeProvider theme={theme}>
-          <FirebaseProvider>
-            <BrowserRouter>
-              <Switch>
-                <PrivateRoute path='/' exact component={Private} />
-                <PrivateRoute path='/pengaturan' component={Private} />
-                <PrivateRoute path='/produk' component={Private} />
-                <PrivateRoute path='/transaksi' component={Private} />
+          <SnackbarProvider max={3}>
+            <FirebaseProvider>
+              <BrowserRouter>
+                <Switch>
+                  <PrivateRoute path='/' exact component={Private} />
+                  <PrivateRoute path='/pengaturan' component={Private} />
+                  <PrivateRoute path='/produk' component={Private} />
+                  <PrivateRoute path='/transaksi' component={Private} />
 
-                <Route path='/register' component={Register} />
-                <Route path='/login' component={Login} />
-                <Route path='/lupa-pass' component={ForgetPass} />
-                <Route component={NotFound} />
-              </Switch>
-            </BrowserRouter>
-          </FirebaseProvider>
+                  <Route path='/register' component={Register} />
+                  <Route path='/login' component={Login} />
+                  <Route path='/lupa-pass' component={ForgetPass} />
+                  <Route component={NotFound} />
+                </Switch>
+              </BrowserRouter>
+            </FirebaseProvider>
+          </SnackbarProvider>
        </ThemeProvider>
       </CssBaseline>
     </>

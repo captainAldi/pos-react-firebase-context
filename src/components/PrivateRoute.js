@@ -16,7 +16,13 @@ function PrivateRoute({component: Component, ...restProps}) {
         if (user) {
           return <Component {...props} />
         } else {
-          return <Redirect to={{ pathname: '/login' }} />
+          return <Redirect to={{ 
+              pathname: '/login',
+              state: {
+                from: props.location
+              }
+            }} 
+          />
         }
 
       }}

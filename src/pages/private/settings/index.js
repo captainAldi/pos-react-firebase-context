@@ -26,18 +26,16 @@ function Settings(props) {
         indicatorColor='primary'
         textColor='primary'
         onChange={handleChangeTab}
-        className={clasess.tabContent}
       >
           <Tab label='Pengguna' value='/pengaturan/pengguna' />
           <Tab label='Toko' value='/pengaturan/toko' />
       </Tabs>
 
-      <div>
+      <div className={clasess.tabContent}>
         <Switch>
           <Route path='/pengaturan/pengguna' component={User} />
           <Route path='/pengaturan/toko' component={Store} />
-
-          <Redirect to='/pengaturan/pengguna' component={User} />
+          <Redirect to='/pengaturan/pengguna' />
         </Switch>
       </div>
     </Paper>

@@ -46,7 +46,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Toko
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -54,9 +54,17 @@ function Copyright() {
   );
 }
 
+function CopyrightShort() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {' © '}
+    </Typography>
+  );
+}
+
 export default function Dashboard() {
   const classes = useStyles();
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const { auth } = useFirebase()
 
@@ -213,14 +221,14 @@ export default function Dashboard() {
           />
 
           <Route
-            path='/pengaturan'
+            path='/pengaturan/pengguna'
             children={({ match, history }) => {
               return (
                 <ListItem
                   button
                   selected={match ? true : false}
                   onClick={() => {
-                    history.push('/pengaturan')
+                    history.push('/pengaturan/pengguna')
                   }}
                 >
                   <ListItemIcon>
@@ -234,6 +242,11 @@ export default function Dashboard() {
           />
 
         </List>
+
+        <Divider/>
+        {
+          open ? <Copyright /> : <CopyrightShort/>
+        }
 
       </Drawer>
 
@@ -333,26 +346,3 @@ const useStyles = makeStyles((theme) => ({
     height: 240,
   },
 }));
-
-/** batas dong */
-
-// import React from 'react'
-// import {Switch, Route} from 'react-router-dom'
-
-// import Pengaturan from './settings'
-// import Products from './products'
-// import Transactions from './Transactions'
-// import Home from './Home'
-
-// function Private() {
-//   return (
-//     <Switch>
-//       <Route path="/pengaturan" component={Pengaturan} />
-//       <Route path="/produk" component={Products} />
-//       <Route path="/transaksi" component={Transactions} />
-//       <Route component={Home} />
-//     </Switch>
-//   )
-// }
-
-// export default Private

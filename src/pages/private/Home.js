@@ -28,7 +28,6 @@ import { useSnackbar } from 'notistack'
 
 import {currency} from '../../utils/formatter'
 import {format} from 'date-fns'
-import Transactions from './Transactions'
 
 function Home() {
   

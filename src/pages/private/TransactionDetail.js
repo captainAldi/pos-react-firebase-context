@@ -13,7 +13,6 @@ import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
 
 import { currency } from '../../utils/formatter'
-import { format } from 'date-fns'
 
 function TransactionDetail(props) {
   return (
